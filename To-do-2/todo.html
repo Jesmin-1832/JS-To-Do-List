@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="./css/todo.css">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body>
+
+    <section class="todo">
+        <div class="d-flex">
+            <aside>
+                <div class="userData d-flex align-items-center justify-content-between">
+                    <div class="user-info d-flex align-items-center justify-content-between">
+                        <p class="firstchar" id="firstletter"><i class="fa-solid fa-image"></i></p>
+                        <div class="username d-flex align-items-center justify-content-between">
+                            <span id="loggedInUserName"></span>
+                            <i class="fas fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="email d-flex align-items-center">
+                                </li>
+                                <hr>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fas fa-gear"></i></span>
+                                    <p>Settings</p>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fas fa-add"></i></span>
+                                    <p>Add a team</p>
+                                </li>
+                                <hr>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fa-solid fa-chart-line"></i></span>
+                                    <p>Activity log</p>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fa-solid fa-print"></i></span>
+                                    <p>Print</p>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fa-solid fa-book-open"></i></span>
+                                    <p>Resources</p>
+                                </li>
+                                <hr>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fa-regular fa-star" style="color: #FFD43B;"></i></span>
+                                    <p>Upgrage to pro</p>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span><i class="fa-solid fa-rotate"></i></span>
+                                    <p>Sync</p>
+                                </li>
+                                <li class="d-flex align-items-center" id="logoutBtn">
+                                    <span><i class="fas fa-sign-out-alt"></i></span>
+                                    <p>Log out</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="BellIcon d-flex" id="notificationTab">
+                        <span><i class="fa-regular fa-bell"></i></span>
+                    </div>
+                </div>
+
+
+                <div class="tasksDetails">
+                    <div>
+                        <div class="addtask d-flex">
+                            <span><i class="fa-solid fa-circle-plus"></i></span>
+                            <p>Add task</p>
+                        </div>
+                        <div class="addtask d-flex" id="allTaskTab">
+                            <span><i class="fa-solid fa-calendar"></i></span>
+                            <p>All Task</p>
+                        </div>
+                        <div class="addtask d-flex" id="todayTaskTab">
+                            <span><i class="fa-regular fa-calendar"></i></span>
+                            <p>Today</p>
+                        </div>
+                        <div class="addtask d-flex" id="upcomingTaskTab">
+                            <span><i class="fa-solid fa-calendar-days"></i></span>
+                            <p>Grouping</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="projects">
+                    <div class="projectHeading d-flex justify-content-between align-items-center">
+                        <h4>My Projects</h4>
+                        <span>
+                            <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+            </aside>
+
+
+            <div class="todoTasks">
+                <div class="logo">
+                    <img src="./images/logo.png" alt="LOGO">&nbsp;&nbsp;
+                    <h2>TO DO</h2>
+                </div>
+
+                <div class="defaultpage">
+                    <div class="Addpopup" id="addPopup">
+                        <div class="Addpopup-content">
+                            <div class="Addpopup-header">
+                                <h2>Add Your Task..</h2>
+                            </div>
+                            <span class="close-button" id="closeButton">&times;</span>
+                            <input type="text" class="taskInput" placeholder="Enter Task Name here.." autofocus>
+                            <input type="text" class="taskInput2" placeholder="Description" autofocus>
+                            <div class="box d-flex align-items-center">
+                                <div class="pos-relative">
+                                    <button class="dueDate d-flex align-items-center" id="dueDateButton"><i
+                                            class="fa-regular fa-calendar"></i>Due Date &nbsp;&nbsp;<i
+                                            class="fa-solid fa-caret-down"></i></button>
+                                    <div class="dateSelect">
+                                        <ul>
+                                            <li><a href="javascript:void" data-value="Today"><i
+                                                        class="fa-solid fa-calendar-day"
+                                                        style="color: #02b105;"></i>Today</a></li>
+                                            <li><a href="javascript:void" data-value="Tomorrow"><i
+                                                        class="fa-solid fa-sun" style="color: #ff9705;"></i>Tomorrow</a>
+                                            </li>
+                                            <li><a href="javascript:void" data-value="This Weekend"><i
+                                                        class="fa-solid fa-couch" style="color: #74C0FC;"></i>This
+                                                    Weekend</a></li>
+                                            <li><a href="javascript:void" data-value="Next Week"><i
+                                                        class="fa-solid fa-diagram-next"
+                                                        style="color: #B197FC;"></i>Next Week</a></li>
+                                            <hr>
+                                            <li><input type="date" id="myDate" onfocus="disablePastDates()"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pos-relative">
+                                    <button class="priority d-flex align-items-center" id="priorityButton"><i
+                                            class="fa-regular fa-flag"></i> Priority &nbsp;&nbsp;<i
+                                            class="fa-solid fa-caret-down"></i></button>
+                                    <div class="selectPriority">
+                                        <ul>
+                                            <li><a href="javascript:void(0)" data-value="Priority 1"><i
+                                                        class="fa-solid fa-flag" style="color: #f45252;"></i>Priority
+                                                    1</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority 2"><i
+                                                        class="fa-solid fa-flag fa-2xs"
+                                                        style="color: #f57724;"></i>Priority 2</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority 3"><i
+                                                        class="fa-solid fa-flag fa-2xs"
+                                                        style="color: #3022f7;"></i>Priority 3</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority"><i
+                                                        class="fa-regular fa-flag"></i>Priority</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button class="reminder"><i class="fa-solid fa-stopwatch"></i>Reminders
+                                    <span>UPGRADE</span></button>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="addButton d-flex align-items-center justify-content-between">
+                                <div class="pos-relative">
+                                    <button class="inbox d-flex align-items-center">
+                                        <i class="fa-solid fa-inbox"></i> Inbox <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                    <div class="selectinbox">
+                                        <ul>
+                                            <li><a href="javascript:void(0)"><input type="text"
+                                                        placeholder="Type a project name"></a></li>
+                                            <li><i class="fa-solid fa-inbox"></i> Inbox </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="cancelButton">Cancel</button>
+                                    <button id="submitButton">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="notification">
+                    <div class="image">
+                        <img src="./images/todo2.png" alt="image">
+                        <h5>Stay in the loop </h5>
+                        <p>Here, you’ll find notifications for any changes that happen in your shared projects. </p>
+                    </div>
+                    <h1>Notification</h1>
+                    <div class="wrapper">
+                        <div class="taeb-switch left text-center">
+                            <div class="taeb active" taeb-direction="left">All</div>
+                            <div class="taeb" taeb-direction="right">Unread</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="AllTaskPage">
+                    <div class="image">
+                        <img src="./images/todo3.png" alt="image">
+                        <h5>Your peace of mind is priceless </h5>
+                        <p>Well done! All your tasks are organized in the right place. </p>
+                    </div>
+                    <h1>All Tasks</h1>
+                    <div class="wrapper">
+                        <div class="taeb-switch2 left text-center">
+                            <div class="taeb active" taeb-direction="left">All</div>
+                            <div class="taeb" taeb-direction="right">Today</div>
+                        </div>
+                    </div>
+                    <div class="showData"></div>
+                </div>
+
+
+                <div class="TodayPage">
+                    <div class="image">
+                        <img src="./images/todo4.png" alt="image">
+                        <h5>You're all done for the week..!</h5>
+                        <p>Enjoy the rest of your day and don't forget to share your #TodoistZero awesomeness ↓</p>
+                    </div>
+                    <h1>Today</h1>
+                    <div class="taskAdd d-flex">        
+                        <span><i class="fa-solid fa-plus"></i></span>
+                        <p>Add task</p>
+                    </div>
+                    <div class="TodayPopup" id="todayPopup">
+                        <div class="TodayPopup-content">
+                            <div class="Addpopup-header">
+                                <h2>Add Your Today's Task..</h2>
+                            </div>
+                            <span class="close-button" id="closeButton">&times;</span>
+                            <input type="text" class="taskInput" placeholder="Enter Task Name here.." autofocus>
+                            <input type="text" class="taskInput2" placeholder="Description" autofocus>
+                            <div class="box d-flex align-items-center">
+                                <div class="pos-relative">
+                                    <button class="priority d-flex align-items-center" id="priorityBtn"><i
+                                            class="fa-regular fa-flag"></i> Priority &nbsp;&nbsp;<i
+                                            class="fa-solid fa-caret-down"></i></button>
+                                    <div class="selectPriority">
+                                        <ul>
+                                            <li><a href="javascript:void(0)" data-value="Priority 1"><i
+                                                        class="fa-solid fa-flag" style="color: #f45252;"></i>Priority 1</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority 2"><i
+                                                        class="fa-solid fa-flag fa-2xs"
+                                                        style="color: #f57724;"></i>Priority 2</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority 3"><i
+                                                        class="fa-solid fa-flag fa-2xs"
+                                                        style="color: #3022f7;"></i>Priority 3</a></li>
+                                            <li><a href="javascript:void(0)" data-value="Priority"><i
+                                                        class="fa-regular fa-flag"></i>Priority</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <button class="reminder"><i class="fa-solid fa-stopwatch"></i>Reminders
+                                    <span>UPGRADE</span></button>
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </div>
+                            <div class="addButton d-flex align-items-center justify-content-between">
+                                <div class="pos-relative">
+                                    <button class="inbox d-flex align-items-center">
+                                        <i class="fa-solid fa-inbox"></i> Inbox <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                    <div class="selectinbox">
+                                        <ul>
+                                            <li><a href="javascript:void(0)"><input type="text"
+                                                        placeholder="Type a project name"></a></li>
+                                            <li><i class="fa-solid fa-inbox"></i> Inbox </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button id="cancelButton">Cancel</button>
+                                    <button id="submitButton">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="GroupingPage">
+                    <div class="image">
+                        <img src="./images/todo1.png" alt="image">
+                        <h5>What do you need to get done today?</h5>
+                        <p>By default, tasks added here will be due today. Click + to add a task.</p>
+                    </div>
+                    <h1>Grouping</h1><br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <h4><i class="fa-solid fa-business-time"></i> Business</h4>
+                            <div class="taskAdd d-flex">
+                                <span><i class="fa-solid fa-plus"></i></span>
+                                <p>Add task</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><i class="fa-solid fa-laptop"></i> Personal</h4>
+                            <div class="taskAdd d-flex">
+                                <span><i class="fa-solid fa-plus"></i></span>
+                                <p>Add task</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><i class="fa-solid fa-people-roof"></i> Family</h4>
+                            <div class="taskAdd d-flex">
+                                <span><i class="fa-solid fa-plus"></i></span>
+                                <p>Add task</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4><i class="fa-solid fa-dumbbell"></i> Work</h4>
+                            <div class="taskAdd d-flex">
+                                <span><i class="fa-solid fa-plus"></i></span>
+                                <p>Add task</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="projectShow">
+                    <h2>My Projects</h2>
+                    <p>Free plan</p>
+                    <div class="pos-relative">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search Projects"><br>
+                    </div>
+                    <div class="selectbox d-flex align-items-center justify-content-between">
+                        <select>
+                            <option value="">-- Project Type --</option>
+                            <option value="">Active Projects</option>
+                            <option value="">Archived Projects</option>
+                        </select>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <br>
+                    <span>0 Project</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <span class="loader"></span>
+
+    <script src="./js/all.min.js"></script>
+    <script type="text/javascript" src="./js/todo.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

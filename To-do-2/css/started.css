@@ -1,0 +1,74 @@
+:root{
+    --button-color : #269DF3;
+    --button-color-hover : #0c6eb3;
+    --theme1: #fa815d;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+.container {
+  max-width: 1399px;
+  margin: 0 auto;
+}
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: inline-block;
+}
+
+/* Get Started */
+
+.getStarted {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.getStarted img {
+  width: 30%;
+}
+.getStarted h2 {
+  margin: 30px 0 20px 0;
+}
+.getStarted p {
+  color: var(--theme1);
+}
+.getStarted a{
+  display: inline-block;
+  margin-top: 50px;
+  width: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: white;
+  border-radius: 30px;
+  background-color: var(--button-color);
+  transition: 0.2s all;
+}
+.getStarted a:hover{
+  background-color: var(--button-color-hover);
+}
+
+   

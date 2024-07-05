@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Login</title>
+    <link rel="stylesheet" href="./css/login.css">    
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <section class="login">
+        <div class="container">
+            <form id="loginForm">
+                <h2>Login Here..</h2>
+                <h3>Welcome.</h3>
+                <h5>To do list...</h5>
+                <div class="inputIcon">    
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <input type="number" name="phone" id="loginPhone" placeholder="Phone Number.." required><br>
+                </div>
+                <div class="inputIcon">
+                    <span><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="password" id="loginPassword" placeholder="Password.." required><br>
+                    <span id="togglePassword"><i class="fa-solid fa-eye-slash"></i></span>
+                </div>
+                <a href="javascript:void(0)">Forgot Password?</a><br>
+                <input type="submit" value="Log in">
+                <p>New to? <button id="registerBtn">Register here</button></p>
+            </form>
+        </div>
+    </section>
+
+    <section class="register">
+        <div class="container">
+            <form id="registerForm">
+                <h2>Register Here..</h2>
+                <h3>Create an Account.</h3>
+                <div class="inputIcon">    
+                    <span><i class="fa-solid fa-user"></i></span>
+                    <input type="text" name="username" id="username" placeholder="Username.." required><br>
+                </div>
+                <div class="inputIcon">    
+                    <span><i class="fa-solid fa-envelope"></i></span>
+                    <input type="text" name="email" id="email" placeholder="Email.." required><br>
+                </div>
+                <div class="inputIcon">
+                    <span><i class="fa-solid fa-phone"></i></span>
+                    <input type="number" name="phone" id="registerPhone" placeholder="Phone.." required><br>
+                </div>
+                <div class="inputIcon">
+                    <span><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" name="password" id="registerPassword" placeholder="Password.." required><br>
+                    <span id="togglePassword"><i class="fa-solid fa-eye-slash"></i></span>
+                </div>
+                <input type="submit" value="Register">
+                <p>Already have an account? <button id="loginBtn">Login here</button></p>   
+            </form>
+        </div>
+    </section>
+
+
+
+    <span class="loader"></span>
+
+    <script type="text/javascript" src="./js/login.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

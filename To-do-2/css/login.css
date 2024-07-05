@@ -1,0 +1,340 @@
+:root {
+  --button-color: #69c95f;
+  --button-color-hover: #538d51;
+  --theme1: #70d267;
+  /* --theme1: #fa815d; */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::selection{
+    background-color: var(--theme1);
+    color: white;
+}
+body {
+  /* background-color: rgba(211, 211, 211, 0.84); */
+  background-image: url("https://wallpapers.com/images/hd/light-grey-background-3rpc9nmamj0y6ff7.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+.container {
+  max-width: 1399px;
+  margin: 0 auto;
+}
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: inline-block;
+}
+
+/* Loader  */
+
+.loader {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  border: 5px solid;
+  border-color: var(--button-color) var(--button-color-hover) transparent
+    transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  transition: 0.2s all;
+  /* display: none; */
+}
+.loader::after,
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid;
+  border-color: transparent transparent var(--button-color-hover) var(--button-color-hover);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+  /* display: none; */
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: var(--button-color) var(--button-color-hover) transparent
+    transparent;
+  animation: rotation 1.5s linear infinite;
+  /* display: none; */
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Login */
+
+.login {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  margin: 0 auto;
+  opacity: 0;
+  transition: 0.5s all;
+}
+.login form {
+  text-align: start;
+  padding: 20px;
+  width: 500px;
+  background-color: white;
+  border-radius: 5px;
+}
+.login form h2 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 30px;
+  color: var(--theme1);
+}
+.login form h3 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin: 10px 0;
+}
+.login form h5 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: var(--theme1);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.login form .inputIcon{
+    position: relative;
+}
+.login form .inputIcon span{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translate(-50% , -50%);
+}
+.login form .inputIcon span:last-child{
+    left: 95%;
+    cursor: pointer;
+}
+.login form input {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  padding-left: 50px;
+  color: black;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border: 1px solid #bdbdbd;
+  caret-color: var(--theme1);
+  border-radius: 5px;
+}
+.login form input:focus {
+  outline: none;
+  border-color: var(--theme1);
+  box-shadow: inset 0 0 5px var(--button-color);
+}
+.login form input::placeholder {
+  font-weight: bold;
+  color: #999;
+  transition: 0.2s all ease-in-out;
+}
+.login form input:focus::placeholder {
+  color: white;
+}
+.login form a {
+  text-align: end;
+  display: block;
+  transition: 0.2s all;
+}
+.login form a:hover {
+  color: var(--button-color-hover);
+}
+.login form input[type="submit"] {
+  margin: 0 auto 20px auto;
+  display: block;
+  width: 70%;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--button-color);
+  border-radius: 30px;
+  transition: 0.2s all;
+}
+.login form input[type="submit"]:hover {
+  background-color: var(--button-color-hover);
+}
+.login form p {
+    color: var(--theme1);
+  text-align: center;
+  margin: 30px 0;
+}
+.login form p button {
+    background-color: transparent;
+    border: 0;
+    color: blue;
+    cursor: pointer;
+  display: inline;
+}
+
+
+
+
+/* Register */
+
+
+.register {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
+  .register form {
+    text-align: start;
+    padding: 20px;
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .register form h2 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 30px;
+    color: var(--theme1);
+  }
+  .register form h3 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin: 10px 0;
+  }
+  .register form .inputIcon{
+      position: relative;
+  }
+  .register form .inputIcon span{
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translate(-50% , -50%);
+  }
+  .register form .inputIcon span:last-child{
+      left: 95%;
+      cursor: pointer;
+  }
+  .register form input {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    padding-left: 50px;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: 1px solid #bdbdbd;
+    caret-color: var(--theme1);
+    border-radius: 5px;
+  }
+  .register form input:focus {
+    outline: none;
+    border-color: var(--theme1);
+    box-shadow: inset 0 0 5px var(--button-color);
+  }
+  .register form input::placeholder {
+    font-weight: bold;
+    color: #999;
+    transition: 0.2s all ease-in-out;
+  }
+  .register form input:focus::placeholder {
+    color: white;
+  }
+  .register form a {
+    text-align: end;
+    display: block;
+    transition: 0.2s all;
+  }
+  .register form a:hover {
+    color: var(--button-color-hover);
+  }
+  .register form input[type="submit"] {
+    margin: 20px auto;
+    display: block;
+    width: 70%;
+    padding: 15px;
+    cursor: pointer;
+    color: white;
+    background-color: var(--button-color);
+    border-radius: 30px;
+    transition: 0.2s all;
+  }
+  .register form input[type="submit"]:hover {
+    background-color: var(--button-color-hover);
+  }
+  .register form p {
+      color: var(--theme1);
+    text-align: center;
+    margin: 30px 0;
+  }
+  .register form p button {
+    background-color: transparent;
+    border: 0;
+    color: blue;
+    cursor: pointer;
+    display: inline;
+  }
+  
+
+  
