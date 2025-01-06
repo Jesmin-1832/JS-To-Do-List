@@ -3,7 +3,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const loader = document.querySelector('.loader');
     loader.style.display = 'block';
-
     setTimeout(function() {
         loader.style.opacity = 0 ;
     }, 2000);
