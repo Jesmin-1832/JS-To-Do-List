@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     loader.style.display = 'block';
     setTimeout(function() {
         loader.style.opacity = 0 ;
-    }, 2000);
+    }, 2000); 
     setTimeout(function() { 
         loader.style.display = 'none';
     }, 3000);
